@@ -1,0 +1,206 @@
+
+{
+  "preguntes": [
+    {
+      "id": 1,
+      "pregunta": "Què indica aquest senyal de trànsit?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Stop"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Cedir el pas"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Entrada prohibida"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/stop.jpg"
+    },
+    {
+      "id": 2,
+      "pregunta": "Què indica un senyal triangular amb vora vermella?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Perill o advertència"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Obligació"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Prohibició"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/perill.jpg"
+    },
+    {
+      "id": 3,
+      "pregunta": "Què indica aquest senyal circular amb fons blau i una fletxa blanca?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Direcció obligatòria"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Carretera tallada"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Prohibit girar"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/direccio-obligatoria.jpg"
+    },
+    {
+      "id": 4,
+      "pregunta": "Què indica aquest senyal?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Prohibit estacionar"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Aparcament autoritzat"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Zona residencial"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/prohibit-estacionar.jpg"
+    },
+    {
+      "id": 5,
+      "pregunta": "Què significa una línia contínua a la carretera?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "No es pot travessar, excepte en casos permesos"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Es pot avançar sempre"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Indica una zona d'aparcament"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/linia-continua.jpg"
+    },
+    {
+      "id": 6,
+      "pregunta": "Què indica el senyal de límit de velocitat de 50 km/h?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Velocitat màxima de 50 km/h"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Velocitat mínima de 50 km/h"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Distància de 50 metres"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/limit-50.jpg"
+    },
+    {
+      "id": 7,
+      "pregunta": "Què ha de fer un conductor davant d'un pas de vianants si hi ha un vianant que vol creuar?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Aturar-se i deixar-lo passar"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Accelerar per passar abans"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Tocar el clàxon i continuar"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/pas-vianants.jpg"
+    },
+    {
+      "id": 8,
+      "pregunta": "Què indica aquest senyal de trànsit?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Entrada prohibida"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Sentit obligatori"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Final de prohibicions"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/entrada-prohibida.jpg"
+    },
+    {
+      "id": 9,
+      "pregunta": "Què indica un semàfor amb llum vermella?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Cal aturar-se"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Es pot passar amb precaució"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Cal accelerar"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/semafor-vermell.jpg"
+    },
+    {
+      "id": 10,
+      "pregunta": "Què indica aquest senyal de trànsit?",
+      "respostes": [
+        {
+          "id": 1,
+          "etiqueta": "Cal cedir el pas"
+        },
+        {
+          "id": 2,
+          "etiqueta": "Cal aturar-se obligatòriament"
+        },
+        {
+          "id": 3,
+          "etiqueta": "Té prioritat el nostre vehicle"
+        }
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://exemple.com/cedir-pas.jpg"
+    }
+  ]
+}
+
