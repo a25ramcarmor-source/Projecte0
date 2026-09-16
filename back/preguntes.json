@@ -1,0 +1,104 @@
+{
+  "preguntes": [
+    {
+      "pregunta": 1,
+      "pregunta_text": "Què indica aquest senyal de trànsit?",
+      "imatge": "https://exemple.com/stop.jpg",
+      "respostes": [
+        "Prohibit girar a la dreta",
+        "Direcció obligatòria cap a la dreta",
+        "Calçada sense sortida"
+      ]
+    },
+    {
+      "pregunta": 2,
+      "pregunta_text": "Què indica un senyal triangular amb vora vermella?",
+      "imatge": "https://exemple.com/perill.jpg",
+      "respostes": [
+        "Perill o advertència",
+        "Obligació",
+        "Prohibició"
+      ]
+    },
+    {
+      "pregunta": 3,
+      "pregunta_text": "Què indica una fletxa blanca sobre fons blau circular?",
+      "imatge": "https://exemple.com/direccio.jpg",
+      "respostes": [
+        "Prohibit circular",
+        "Direcció obligatòria",
+        "Fi de prohibició"
+      ]
+    },
+    {
+      "pregunta": 4,
+      "pregunta_text": "Què indica un senyal de prohibit estacionar?",
+      "imatge": "https://exemple.com/aparcament.jpg",
+      "respostes": [
+        "No es pot estacionar",
+        "Aparcament obligatori",
+        "Zona de càrrega"
+      ]
+    },
+    {
+      "pregunta": 5,
+      "pregunta_text": "Què significa una línia contínua a la calçada?",
+      "imatge": "https://exemple.com/linia.jpg",
+      "respostes": [
+        "No es pot travessar",
+        "Es pot travessar sempre",
+        "Indica un aparcament"
+      ]
+    },
+    {
+      "pregunta": 6,
+      "pregunta_text": "Quina velocitat màxima indica aquest senyal?",
+      "imatge": "https://exemple.com/50.jpg",
+      "respostes": [
+        "50 km/h",
+        "80 km/h",
+        "30 km/h"
+      ]
+    },
+    {
+      "pregunta": 7,
+      "pregunta_text": "Què indica un pas de vianants?",
+      "imatge": "https://exemple.com/vianants.jpg",
+      "respostes": [
+        "Zona destinada al pas de vianants",
+        "Zona d'aparcament",
+        "Carril bici"
+      ]
+    },
+    {
+      "pregunta": 8,
+      "pregunta_text": "Què indica el senyal de prohibició d'entrada?",
+      "imatge": "https://exemple.com/entrada.jpg",
+      "respostes": [
+        "Prohibit entrar",
+        "Entrada obligatòria",
+        "Fi de prohibició"
+      ]
+    },
+    {
+      "pregunta": 9,
+      "pregunta_text": "Què significa un semàfor amb llum vermella?",
+      "imatge": "https://exemple.com/semafor.jpg",
+      "respostes": [
+        "Aturar-se",
+        "Accelerar",
+        "Passar amb precaució"
+      ]
+    },
+    {
+      "pregunta": 10,
+      "pregunta_text": "Què indica el senyal de cedir el pas?",
+      "imatge": "https://exemple.com/cedir.jpg",
+      "respostes": [
+        "Cedir el pas",
+        "Parada obligatòria",
+        "Prioritat de pas"
+      ]
+    }
+  ]
+}

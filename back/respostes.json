@@ -1,0 +1,42 @@
+[
+  {
+    "pregunta": 1,
+    "resposta": "Prohibit girar a la dreta"
+  },
+  {
+    "pregunta": 2,
+    "resposta": "Perill o advertència"
+  },
+  {
+    "pregunta": 3,
+    "resposta": "Direcció obligatòria"
+  },
+  {
+    "pregunta": 4,
+    "resposta": "No es pot estacionar"
+  },
+  {
+    "pregunta": 5,
+    "resposta": "No es pot travessar"
+  },
+  {
+    "pregunta": 6,
+    "resposta": "50 km/h"
+  },
+  {
+    "pregunta": 7,
+    "resposta": "Zona destinada al pas de vianants"
+  },
+  {
+    "pregunta": 8,
+    "resposta": "Prohibit entrar"
+  },
+  {
+    "pregunta": 9,
+    "resposta": "Aturar-se"
+  },
+  {
+    "pregunta": 10,
+    "resposta": "Cedir el pas"
+  }
+]
