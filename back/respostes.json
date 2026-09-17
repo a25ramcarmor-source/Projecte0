@@ -38,5 +38,65 @@
   {
     "pregunta": 10,
     "resposta": "Cedir el pas"
+  },
+  {
+    "pregunta": 11,
+    "resposta": "Parada obligatòria"
+  },
+  {
+    "pregunta": 12,
+    "resposta": "Prohibició o restricció"
+  },
+  {
+    "pregunta": 13,
+    "resposta": "Informació o indicació"
+  },
+  {
+    "pregunta": 14,
+    "resposta": "Aturar-se si es pot fer amb seguretat"
+  },
+  {
+    "pregunta": 15,
+    "resposta": "Es pot passar"
+  },
+  {
+    "pregunta": 16,
+    "resposta": "Perill per la proximitat d'una intersecció"
+  },
+  {
+    "pregunta": 17,
+    "resposta": "Velocitat màxima de 30 km/h"
+  },
+  {
+    "pregunta": 18,
+    "resposta": "No es pot avançar"
+  },
+  {
+    "pregunta": 19,
+    "resposta": "Finalitza la limitació de velocitat"
+  },
+  {
+    "pregunta": 20,
+    "resposta": "Via reservada per a bicicletes"
+  },
+  {
+    "pregunta": 21,
+    "resposta": "Reduir el risc de lesions en cas d'accident"
+  },
+  {
+    "pregunta": 22,
+    "resposta": "Cedir-los el pas"
+  },
+  {
+    "pregunta": 23,
+    "resposta": "Es pot travessar quan sigui segur"
+  },
+  {
+    "pregunta": 24,
+    "resposta": "Comprovar que es pot fer amb seguretat i senyalitzar"
+  },
+  {
+    "pregunta": 25,
+    "resposta": "Facilitar-li el pas"
   }
 ]
