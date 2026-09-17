@@ -1,5 +1,10 @@
 let tiempo = 0;
 
+let estat_partida = {
+    respostes_usuari: [],
+    contador_preg: 0
+}
+
 setInterval(function () {
     tiempo++;
     let segundos = tiempo;
@@ -28,6 +33,11 @@ fetch('/json1')
         }
 
 
+        for (let i = 0; i < 10; i++) {
+            estat_partida.respostes_usuari[i] = null;
+        }
+
+
         let html = '';
 
         for (let i = 0; i < p_elegida.length; i++) {
@@ -46,15 +56,15 @@ fetch('/json1')
 
                     <div class="d-flex flex-column align-items-center gap-2">
 
-                        <button onclick="presionado()" type="button" class="btn btn-secondary">
+                        <button onclick="presionado(${pregunta.pregunta}, '${pregunta.respostes[0]}')" type="button" class="btn btn-secondary">
                             ${pregunta.respostes[0]}
                         </button>
 
-                        <button onclick="presionado()" type="button" class="btn btn-secondary">
+                        <button onclick="presionado(${pregunta.pregunta}, '${pregunta.respostes[1]}')" type="button" class="btn btn-secondary">
                             ${pregunta.respostes[1]}
                         </button>
 
-                        <button onclick="presionado()" type="button" class="btn btn-secondary">
+                        <button onclick="presionado(${pregunta.pregunta}, '${pregunta.respostes[2]}')" type="button" class="btn btn-secondary">
                             ${pregunta.respostes[2]}
                         </button>
 
@@ -68,8 +78,15 @@ fetch('/json1')
         partida.innerHTML = html;
 
     });
+function renderitzar_marcador() {
 
+    document.getElementById('marcador').innerHTML = `Preguntes Respostes: ${estat_partida.contador_preg} de 10`;
+}
 
-function presionado() {
-    console.log('Boton presionado');
+function presionado(preg, res) {
+    if (estat_partida.respostes_usuari[preg] == null) {
+        estat_partida.respostes_usuari[preg] = res
+        estat_partida.contador_preg++;
+        renderitzar_marcador();
+    };
 }
