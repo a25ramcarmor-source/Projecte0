@@ -1,8 +1,15 @@
+let tiempo = 0;
+setInterval(function(){ 
+tiempo++;
+let segundos = tiempo;
+document.getElementById('tiempo').innerHTML= `Tiempo: ${segundos} segons`;
+},1000);
 fetch('/json1')
     .then(response => response.json())
     .then(data => {
 
         let partida = document.getElementById('partida');
+        
 
         let html = '';
 
