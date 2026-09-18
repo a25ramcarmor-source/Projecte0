@@ -1,4 +1,5 @@
 let tiempo = 0;
+let preg = 10;
 
 let estat_partida = {
     respostes_usuari: [],
@@ -7,13 +8,22 @@ let estat_partida = {
 
 setInterval(function () {
     tiempo++;
-    let segundos = tiempo;
+
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+
+    if (minutos < 10) {
+        minutos = "0" + minutos;
+    }
+
+    if (segundos < 10) {
+        segundos = "0" + segundos;
+    }
 
     document.getElementById('tiempo').innerHTML =
-        `Tiempo: ${segundos} segons`;
+        `Tiempo: ${minutos}:${segundos}`;
 
 }, 1000);
-
 
 fetch('/json1')
     .then(response => response.json())
@@ -21,31 +31,23 @@ fetch('/json1')
 
         let partida = document.getElementById('partida');
 
-        let p_elegida = [];
-
-        while (p_elegida.length < 10) {
-
-            let numero = Math.floor(Math.random() * 25);
-
-            if (!p_elegida.includes(numero)) {
-                p_elegida.push(numero);
-            }
-        }
-
-
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < preg; i++) {
             estat_partida.respostes_usuari[i] = null;
         }
 
+        document.getElementById('marcador').innerHTML =
+            `Preguntes respostes: 0 de ${preg}`;
 
         let html = '';
 
-        for (let i = 0; i < p_elegida.length; i++) {
+        for (let i = 0; i < data.questions.length; i++) {
 
-            let pregunta = data.preguntes[p_elegida[i]];
+            let numero = data.questions[i];
+
+            let pregunta = data.preguntes[numero];
 
             html += `
-                <div class="col-10 text-center border rounded p-3 mt-3 mb-4 bg-white">
+                <div class="col-10 text-center border rounded p-3 mt-2 mb-4 bg-white">
 
                     <h2>${pregunta.pregunta_text}</h2>
 
@@ -76,17 +78,32 @@ fetch('/json1')
         }
 
         partida.innerHTML = html;
-
     });
+
 function renderitzar_marcador() {
 
-    document.getElementById('marcador').innerHTML = `Preguntes Respostes: ${estat_partida.contador_preg} de 10`;
+    document.getElementById('marcador').innerHTML =
+        `Preguntes Respostes: ${estat_partida.contador_preg} de ${preg}`;
+
+    let porcentaje = estat_partida.contador_preg * 10;
+
+    document.getElementById('progreso').style.width = porcentaje + "%";
+
+    document.getElementById('progreso').innerHTML = porcentaje + "%";
 }
 
+
 function presionado(preg, res) {
+
     if (estat_partida.respostes_usuari[preg] == null) {
-        estat_partida.respostes_usuari[preg] = res
+
+        estat_partida.respostes_usuari[preg] = res;
         estat_partida.contador_preg++;
+
         renderitzar_marcador();
-    };
+    }
+
+    if (estat_partida.contador_preg == preg) {
+        document.getElementById('enviar_res').classList.remove('hidden');
+    }
 }

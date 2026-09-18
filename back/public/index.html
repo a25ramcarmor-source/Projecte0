@@ -12,14 +12,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="container" style="background-color: #f5f5dc;">
-    <div id="marcador" class="text-center"> Preguntes respostes: 0 de 10</div>
+    <div id="marcador" class="text-center mb-2">
+        Preguntes respostes: 0 de 10
+    </div>
+
+    <div class="progress mb-4">
+        <div id="progreso" class="progress-bar" style="width: 0%">
+            0%
+        </div>
+    </div>
     <div class="position-sticky top-0 text-end">
-        <h3 id="tiempo">Temps: 0 Segons</h3>
+        <h3 id="tiempo">Tiempo: 00:00</h3>
     </div>
     <div id="partida" class="row justify-content-center"></div>
+    <button id="enviar_res" class="hidden">
+        Enviar Resultats
+    </button>
 
     <script src="funcions.js"></script>
 
