@@ -6,68 +6,153 @@ let estat_partida = {
     respostes_usuari: [],
     contador_preg: 0
 };
+setInterval(() => {
+    tiempo++;
+
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+
+    if (minutos < 10) {
+        minutos = "0" + minutos;
+    }
+
+    if (segundos < 10) {
+        segundos = "0" + segundos;
+    }
+
+    document.getElementById("tiempo").textContent =
+        "Tiempo: " + minutos + ":" + segundos;
+
+}, 1000);
 
 // Petición inicial para cargar el test
+let num_preg = 0;
+let preguntas = [];
+let partida = document.getElementById('partida');
+
 fetch('/json1')
     .then(response => response.json())
     .then(data => {
-        // Guardar el sessionId
+
+        // Guardar sessionId
         estat_partida.sessionId = data.sessionId;
 
-        let partida = document.getElementById('partida');
+        // Guardar las preguntas
+        preguntas = data.questions;
 
+        // Inicializar respuestas
         for (let i = 0; i < preg; i++) {
             estat_partida.respostes_usuari[i] = null;
         }
 
-        // Inicializar marcador y barra de progreso a 0%
-        document.getElementById('marcador').innerHTML = `Preguntes respostes: 0 de ${preg}`;
+        // Inicializar marcador
+        document.getElementById('marcador').innerHTML =
+            `Preguntes respostes: 0 de ${preg}`;
+
+        // Inicializar barra
         actualitzarBarraProgres(0);
 
-        let html = '';
+        // Mostrar primera pregunta
+        mostrarpregunta();
 
-        // Iterar sobre data.questions
-        for (let i = 0; i < data.questions.length; i++) {
-            let pregunta = data.questions[i];
-
-            html += `
-                <div class="col-10 text-center border rounded p-3 mt-2 mb-4 bg-white">
-                    <h2>${pregunta.question}</h2>
-                    <img src="${pregunta.imatge}" width="200" height="200" class="d-block mx-auto mb-3">
-                    <div class="d-flex flex-column align-items-center gap-2">
-                        <button onclick="presionado(${i}, 0)" type="button" class="btn btn-secondary">
-                            ${pregunta.answers[0]}
-                        </button>
-                        <button onclick="presionado(${i}, 1)" type="button" class="btn btn-secondary">
-                            ${pregunta.answers[1]}
-                        </button>
-                        <button onclick="presionado(${i}, 2)" type="button" class="btn btn-secondary">
-                            ${pregunta.answers[2]}
-                        </button>
-                    </div>
-                    <hr>
-                </div>
-            `;
-        }
-
-        partida.innerHTML = html;
     })
     .catch(err => console.error('Error al cargar preguntas:', err));
 
+
+function mostrarpregunta() {
+
+    // Cogemos la pregunta actual
+    let pregunta = preguntas[num_preg];
+
+    let html = `
+        <div class="col-10 text-center border rounded p-3 mt-2 mb-4 bg-white">
+
+            <h2>${pregunta.question}</h2>
+
+            <img src="${pregunta.imatge}" width="200" height="200"
+                class="d-block mx-auto mb-3">
+
+            <div class="d-flex flex-column align-items-center gap-2">
+
+                <button onclick="presionado(${num_preg}, 0)"
+                    type="button" class="btn btn-secondary">
+                    ${pregunta.answers[0]}
+                </button>
+
+                <button onclick="presionado(${num_preg}, 1)"
+                    type="button" class="btn btn-secondary">
+                    ${pregunta.answers[1]}
+                </button>
+
+                <button onclick="presionado(${num_preg}, 2)"
+                    type="button" class="btn btn-secondary">
+                    ${pregunta.answers[2]}
+                </button>
+
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+
+                <button type="button"
+                    class="btn btn-primary"
+                    onclick="anterior()">
+                    🡸
+                </button>
+
+                <button type="button"
+                    class="btn btn-primary"
+                    onclick="siguiente()">
+                    🡺
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    partida.innerHTML = html;
+}
+
+
+function siguiente() {
+
+    if (num_preg < preguntas.length - 1) {
+        num_preg++;
+        mostrarpregunta();
+    }
+
+}
+
+
+function anterior() {
+
+    if (num_preg > 0) {
+        num_preg--;
+        mostrarpregunta();
+    }
+
+}
+
 function presionado(indexPregunta, indexResposta) {
+
     if (estat_partida.respostes_usuari[indexPregunta] === null) {
-        estat_partida.respostes_usuari[indexPregunta] = indexResposta;
+
+        // Guardar el texto de la respuesta
+        estat_partida.respostes_usuari[indexPregunta] =
+            preguntas[indexPregunta].answers[indexResposta];
+
         estat_partida.contador_preg++;
 
         document.getElementById('marcador').innerHTML =
             `Preguntes respostes: ${estat_partida.contador_preg} de ${preg}`;
 
-        // Actualizar la barra de progreso
         actualitzarBarraProgres(estat_partida.contador_preg);
     }
 
     if (estat_partida.contador_preg === preg) {
-        enviarRespostes();
+        document.getElementById('enviar_res').style.display = "block";
     }
 }
 
@@ -83,6 +168,7 @@ function actualitzarBarraProgres(contador) {
 }
 
 function enviarRespostes() {
+    document.getElementById('enviar_res').style.display = "none";
     fetch('/comprovar', {
         method: 'POST',
         headers: {

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = Number(process.argv[2]) || 3001;
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
@@ -32,16 +32,20 @@ app.get('/json1', (req, res) => {
         questions: p_elegida
     });
 
-    // Mapear la respuesta exactamente como la pide el enunciado (sin la respuesta correcta)
+    console.log("SessionId:", sessionId);
+    console.log("Preguntas:", p_elegida);
+    
+    // Mapear la respuesta(sin la respuesta correcta)
     const clientQuestions = p_elegida.map(index => {
-        const p = preguntes[index];
-        return {
-            id: index,                          // O p.id si tu JSON ya tiene un id
-            question: p.pregunta_text,          // El texto de la pregunta
-            answers: p.respostes,               // Array de opciones de respuesta
-            imatge: p.imatge                    // Tu campo de imagen adicional
-        };
-    });
+    const p = preguntes[index];
+
+    return {
+        id: p.pregunta,
+        question: p.pregunta_text,
+        answers: p.respostes,
+        imatge: p.imatge
+    };
+});
 
     // Retornar exactamente la estructura requerida
     res.json({
@@ -51,34 +55,50 @@ app.get('/json1', (req, res) => {
 });
 
 app.post('/comprovar', (req, res) => {
+
     const { sessionId, respostes_usuari } = req.body;
 
+    // Comprobar que existe la sesión
     if (!sessions.has(sessionId)) {
-        return res.status(404).json({ error: "Sessió no trobada o caducada" });
+        return res.status(404).json({
+            error: "Sessió no trobada o caducada"
+        });
     }
 
+    // Obtener la sesión
     const session = sessions.get(sessionId);
-    const dades = fs.readFileSync('preguntes.json', 'utf-8');
-    const preguntesOriginals = JSON.parse(dades).preguntes;
+
+    // Leer JSON de respuestas correctas
+    const dades = fs.readFileSync('respostes.json', 'utf-8');
+    const respostesCorrectes = JSON.parse(dades);
 
     let encerts = 0;
     let errors = 0;
 
+    // Recorrer las preguntas de la sesión
     session.questions.forEach((indexPregunta, i) => {
-        const preguntaOriginal = preguntesOriginals[indexPregunta];
+
+        // +1 porque el índice empieza en 0
+        // pero "pregunta" en respostes.json empieza en 1
+        const numeroPregunta = indexPregunta + 1;
+
+        // Buscar la respuesta correcta
+        const respostaCorrecta = respostesCorrectes.find(
+            r => r.pregunta === numeroPregunta
+        );
+
+        // Respuesta que ha dado el usuario
         const respostaUsuari = respostes_usuari[i];
 
-        // Asegúrate de que 'correcta' coincida con la propiedad de tu JSON
-        if (respostaUsuari === preguntaOriginal.correcta) {
+        // Comparar
+        if (respostaUsuari === respostaCorrecta.resposta) {
             encerts++;
         } else {
             errors++;
         }
     });
 
-    // Opcional: Eliminar la sesión una vez corregida
-    sessions.delete(sessionId);
-
+    // Enviar resultado
     res.json({
         missatge: "Cuestionario corregido correctamente",
         encerts: encerts,
@@ -89,4 +109,5 @@ app.post('/comprovar', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);
+    console.log();
 });
