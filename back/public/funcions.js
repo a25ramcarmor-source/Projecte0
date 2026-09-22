@@ -30,6 +30,23 @@ let num_preg = 0;
 let preguntas = [];
 let partida = document.getElementById('partida');
 
+partida.addEventListener('click',(event) =>{
+    if(event.target.classList.contains('btn-resposta')){
+         const indexResposta = event.target.dataset.resposta;
+        presionado(num_preg, Number(indexResposta));
+    }
+     if (event.target.classList.contains('btn-anterior')) {
+        anterior();
+    }
+    if (event.target.classList.contains('btn-seguent')) {
+        siguiente();
+    }
+});
+
+document.getElementById('enviar_res').addEventListener('click', () => {
+    enviarRespostes();
+});
+
 fetch('/json1')
     .then(response => response.json())
     .then(data => {
@@ -74,18 +91,18 @@ function mostrarpregunta() {
 
             <div class="d-flex flex-column align-items-center gap-2">
 
-                <button onclick="presionado(${num_preg}, 0)"
-                    type="button" class="btn btn-secondary">
+                <button
+                    type="button" class="btn btn-secondary btn-resposta" data-resposta="0">
                     ${pregunta.answers[0]}
                 </button>
 
-                <button onclick="presionado(${num_preg}, 1)"
-                    type="button" class="btn btn-secondary">
+                <button
+                    type="button" class="btn btn-secondary btn-resposta" data-resposta="1">
                     ${pregunta.answers[1]}
                 </button>
 
-                <button onclick="presionado(${num_preg}, 2)"
-                    type="button" class="btn btn-secondary">
+                <button
+                    type="button" class="btn btn-secondary btn-resposta" data-resposta="2">
                     ${pregunta.answers[2]}
                 </button>
 
@@ -96,14 +113,14 @@ function mostrarpregunta() {
             <div class="d-flex justify-content-between">
 
                 <button type="button"
-                    class="btn btn-primary"
-                    onclick="anterior()">
+                    class="btn btn-primary btn-anterior"
+                    >
                     🡸
                 </button>
 
                 <button type="button"
-                    class="btn btn-primary"
-                    onclick="siguiente()">
+                    class="btn btn-primary btn-seguent"
+                   >
                     🡺
                 </button>
 
