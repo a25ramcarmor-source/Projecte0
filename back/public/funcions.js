@@ -1,36 +1,49 @@
 let usuari = document.getElementById('usuari');
-let formUsuari = document.getElementById('formUsuari');
-let nomUsuari = document.getElementById('nomUsuari');
 
 let nomGuardat = localStorage.getItem('nomUsuari');
 
 if (nomGuardat) {
+
     usuari.innerHTML = `
-    <h2>Benvingut, ${nomGuardat}!</h2> 
+        <h2>Benvingut, ${nomGuardat}!</h2>
+
         <button id="esborrarNom" class="btn btn-danger">
-            Esborrar nom 
-        </button> `;
+            Esborrar nom
+        </button>
+    `;
+
+} else {
+
+    let formUsuari = document.getElementById('formUsuari');
+
+    formUsuari.addEventListener('submit', (event) => {
+
+        event.preventDefault();
+
+        let nom = document.getElementById('nomUsuari').value;
+
+        localStorage.setItem('nomUsuari', nom);
+
+        usuari.innerHTML = `
+            <h2>Benvingut, ${nom}!</h2>
+
+            <button id="esborrarNom" class="btn btn-danger">
+                Esborrar nom
+            </button>
+        `;
+    });
 }
 
-formUsuari.addEventListener('submit',(event) =>{
-    event.preventDefault();
 
-    let nom = nomUsuari.value;
+usuari.addEventListener('click', (event) => {
 
-    localStorage.setItem('nomUsuari',nom);
+    if (event.target.id == 'esborrarNom') {
 
-    usuari.innerHTML = ` <h2>Benvingut, ${nom}!</h2> 
-    <button id="esborrarNom" class="btn btn-danger"> 
-    Esborrar nom 
-    </button> `;
-
-});
-
-usuari.addEventListener('click',(event) =>{
-    if(event.target.id == 'esborrarNom'){
         localStorage.removeItem('nomUsuari');
-        location.reload
+
+        location.reload();
     }
+
 });
 let tiempo = 0;
 const preg = 10;
@@ -248,15 +261,15 @@ function actualitzarBarraProgres(contador) {
 function enviarRespostes() {
     document.getElementById('enviar_res').style.display = "none";
     fetch('/comprovar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            sessionId: estat_partida.sessionId,
-            respostes_usuari: estat_partida.respostes_usuari
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                sessionId: estat_partida.sessionId,
+                respostes_usuari: estat_partida.respostes_usuari
+            })
         })
-    })
         .then(response => response.json())
         .then(data => {
             const contenedorPartida = document.getElementById('partida');
