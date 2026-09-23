@@ -41,6 +41,7 @@ partida.addEventListener('click',(event) =>{
     if (event.target.classList.contains('btn-seguent')) {
         siguiente();
     }
+
 });
 
 document.getElementById('enviar_res').addEventListener('click', () => {
@@ -130,6 +131,19 @@ function mostrarpregunta() {
     `;
 
     partida.innerHTML = html;
+
+    let resposta_guardada = estat_partida.respostes_usuari[num_preg];
+
+    if(resposta_guardada != null){
+    let botones = partida.querySelectorAll('.btn-resposta');
+    botones.forEach((boton) =>{
+        if(boton.textContent.trim()== resposta_guardada){
+            boton.classList.remove('btn-secondary');
+            boton.classList.add('btn-warning');
+        }
+    });
+    }
+
 }
 
 
@@ -154,6 +168,17 @@ function anterior() {
 
 function presionado(indexPregunta, indexResposta) {
 
+    let botones = partida.querySelectorAll('.btn-resposta');
+    
+    botones.forEach((boton) =>{
+        boton.classList.remove('btn-warning');
+        boton.classList.add('btn-secondary');
+
+    });
+
+    botones[indexResposta].classList.remove('btn-secondary');
+    botones[indexResposta].classList.add('btn-warning');
+
     if (estat_partida.respostes_usuari[indexPregunta] === null) {
 
         // Guardar el texto de la respuesta
@@ -171,6 +196,8 @@ function presionado(indexPregunta, indexResposta) {
     if (estat_partida.contador_preg === preg) {
         document.getElementById('enviar_res').style.display = "block";
     }
+
+
 }
 
 // Función auxiliar para recalcular y pintar el porcentaje de la barra
