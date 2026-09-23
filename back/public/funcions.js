@@ -1,3 +1,37 @@
+let usuari = document.getElementById('usuari');
+let formUsuari = document.getElementById('formUsuari');
+let nomUsuari = document.getElementById('nomUsuari');
+
+let nomGuardat = localStorage.getItem('nomUsuari');
+
+if (nomGuardat) {
+    usuari.innerHTML = `
+    <h2>Benvingut, ${nomGuardat}!</h2> 
+        <button id="esborrarNom" class="btn btn-danger">
+            Esborrar nom 
+        </button> `;
+}
+
+formUsuari.addEventListener('submit',(event) =>{
+    event.preventDefault();
+
+    let nom = nomUsuari.value;
+
+    localStorage.setItem('nomUsuari',nom);
+
+    usuari.innerHTML = ` <h2>Benvingut, ${nom}!</h2> 
+    <button id="esborrarNom" class="btn btn-danger"> 
+    Esborrar nom 
+    </button> `;
+
+});
+
+usuari.addEventListener('click',(event) =>{
+    if(event.target.id == 'esborrarNom'){
+        localStorage.removeItem('nomUsuari');
+        location.reload
+    }
+});
 let tiempo = 0;
 const preg = 10;
 
@@ -30,12 +64,12 @@ let num_preg = 0;
 let preguntas = [];
 let partida = document.getElementById('partida');
 
-partida.addEventListener('click',(event) =>{
-    if(event.target.classList.contains('btn-resposta')){
-         const indexResposta = event.target.dataset.resposta;
+partida.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-resposta')) {
+        const indexResposta = event.target.dataset.resposta;
         presionado(num_preg, Number(indexResposta));
     }
-     if (event.target.classList.contains('btn-anterior')) {
+    if (event.target.classList.contains('btn-anterior')) {
         anterior();
     }
     if (event.target.classList.contains('btn-seguent')) {
@@ -134,14 +168,14 @@ function mostrarpregunta() {
 
     let resposta_guardada = estat_partida.respostes_usuari[num_preg];
 
-    if(resposta_guardada != null){
-    let botones = partida.querySelectorAll('.btn-resposta');
-    botones.forEach((boton) =>{
-        if(boton.textContent.trim()== resposta_guardada){
-            boton.classList.remove('btn-secondary');
-            boton.classList.add('btn-warning');
-        }
-    });
+    if (resposta_guardada != null) {
+        let botones = partida.querySelectorAll('.btn-resposta');
+        botones.forEach((boton) => {
+            if (boton.textContent.trim() == resposta_guardada) {
+                boton.classList.remove('btn-secondary');
+                boton.classList.add('btn-warning');
+            }
+        });
     }
 
 }
@@ -169,8 +203,8 @@ function anterior() {
 function presionado(indexPregunta, indexResposta) {
 
     let botones = partida.querySelectorAll('.btn-resposta');
-    
-    botones.forEach((boton) =>{
+
+    botones.forEach((boton) => {
         boton.classList.remove('btn-warning');
         boton.classList.add('btn-secondary');
 

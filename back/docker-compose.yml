@@ -1,0 +1,43 @@
+# docker-compose.yml
+services:
+
+  # Servidor Node.js (Express / Backend)
+  node:
+    image: node:20
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    working_dir: /home/node/app
+    ports:
+      - "4000:4000"
+    # Utiliza 'npm start' o ejecuta 'node app.js'
+    command: bash -c "npm install && node app.js"
+
+  
+  # Administrador web para MySQL
+  adminer:
+    image: adminer:4.7.7
+    restart: always
+    ports:
+      - "9090:8080"
+    depends_on:
+      - db
+
+  # Base de datos MySQL
+  db:
+    image: mysql:8.2.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Descomenta esta línea si dispones de un script .sql inicial en la carpeta
+      # - ./dades.sql:/docker-entrypoint-initdb.d/dades.sql
+
+volumes:
+  mysql_data:
