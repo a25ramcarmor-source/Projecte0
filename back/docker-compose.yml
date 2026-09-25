@@ -37,7 +37,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       # Descomenta esta línea si dispones de un script .sql inicial en la carpeta
-      # - ./dades.sql:/docker-entrypoint-initdb.d/dades.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   mysql_data:

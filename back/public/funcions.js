@@ -2,6 +2,7 @@ let usuari = document.getElementById('usuari');
 
 let nomGuardat = localStorage.getItem('nomUsuari');
 
+
 if (nomGuardat) {
 
     usuari.innerHTML = `
