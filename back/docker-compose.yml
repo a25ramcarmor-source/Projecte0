@@ -10,8 +10,10 @@ services:
     working_dir: /home/node/app
     ports:
       - "4000:4000"
-    # Utiliza 'npm start' o ejecuta 'node app.js'
-    command: bash -c "npm install && node app.js"
+    depends_on:
+      db:
+        condition: service_healthy # Espera a que el healthcheck de MySQL dé OK
+    command: sh -c "npm install mysql2 && node migrate.js && node app.js"
 
   
   # Administrador web para MySQL
@@ -29,7 +31,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test_db
+      MYSQL_DATABASE: quiz_db
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     ports:
@@ -38,6 +40,11 @@ services:
       - mysql_data:/var/lib/mysql
       # Descomenta esta línea si dispones de un script .sql inicial en la carpeta
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   mysql_data:
