@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS PREGUNTES (
 CREATE TABLE IF NOT EXISTS OPCIONS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pregunta_id INT NOT NULL,
-    text_opcio TEXT NOT NULL,
+    text_opcio VARCHAR(255) NOT NULL,
     es_correcta BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (pregunta_id) REFERENCES PREGUNTES(id) ON DELETE CASCADE -- ✅ Corregido a mayúsculas
+    FOREIGN KEY (pregunta_id) REFERENCES PREGUNTES(id) ON DELETE CASCADE,
+    UNIQUE KEY uq_pregunta_opcio (pregunta_id, text_opcio) -- ✅ Restricción de unicidad
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

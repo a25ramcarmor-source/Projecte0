@@ -35,7 +35,7 @@ async function insertBdd(con,preguntes, respostes) {
     p.imatge
   ]);
 
-  await con.query('INSERT INTO PREGUNTES (id,pregunta_text,imatge) VALUES ?',
+  await con.query('INSERT IGNORE INTO PREGUNTES (id,pregunta_text,imatge) VALUES ?',
     [v_preguntes]
   );
 
@@ -50,7 +50,7 @@ async function insertBdd(con,preguntes, respostes) {
         Boolean(respostaCorrecte && respostaCorrecte.resposta === text_res)
       ]);
   });
-  await con.query('INSERT INTO OPCIONS (pregunta_id,text_opcio,es_correcta) VALUES ?',
+  await con.query('INSERT IGNORE INTO OPCIONS (pregunta_id,text_opcio,es_correcta) VALUES ?',
     [v_opcions]
   );
 
