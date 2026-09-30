@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
 const { v4: uuidv4 } = require('uuid');
+const crudRoutes = require('./crud');
 
 const app = express();
 const port = Number(process.argv[2]) || 4000;
