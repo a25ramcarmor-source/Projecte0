@@ -3,7 +3,7 @@
     {
       "pregunta": 1,
       "pregunta_text": "Què indica aquest senyal de trànsit?",
-      "imatge": "https://syssa.com/39493-large_default/giro-a-la-derecha-prohibido-tipo-economica-referencia-r302.jpg",
+      "imatge": "/img/img_1.jpg",
       "respostes": [
         "Prohibit girar a la dreta",
         "Direcció obligatòria cap a la dreta",
@@ -13,7 +13,7 @@
     {
       "pregunta": 2,
       "pregunta_text": "Què indica un senyal triangular amb vora vermella?",
-      "imatge": "https://practicatest.com/static/img/test/ES/B/907bd3ccc55aa6b27c9df043303dfdb2.webp",
+      "imatge": "/img/img_2.png",
       "respostes": [
         "Perill o advertència",
         "Obligació",
@@ -23,7 +23,7 @@
     {
       "pregunta": 3,
       "pregunta_text": "Què indica una fletxa blanca sobre fons blau circular?",
-      "imatge": "https://thumbs.dreamstime.com/b/signo-de-tr%C3%A1fico-circular-azul-con-una-flecha-blanca-que-indica-un-giro-la-derecha-obligatorio-vista-aislada-y-cerrada-400574762.jpg",
+      "imatge": "/img/img_3.png",
       "respostes": [
         "Prohibit circular",
         "Direcció obligatòria",
@@ -33,7 +33,7 @@
     {
       "pregunta": 4,
       "pregunta_text": "Què indica un senyal de prohibit estacionar?",
-      "imatge": "https://www.motor.es/fotos-diccionario/2020/08/senales-de-prohibido-parar-y-estacionar_1597853979.jpg",
+      "imatge": "/img/img_4.jpg",
       "respostes": [
         "No es pot estacionar",
         "Aparcament obligatori",
@@ -43,7 +43,7 @@
     {
       "pregunta": 5,
       "pregunta_text": "Què significa una línia contínua a la calçada?",
-      "imatge": "https://practicatest.com/static/img/test/ES/B/b647ea5033a411ab40b8e1415241d0ae.webp",
+      "imatge": "/img/img_5.png",
       "respostes": [
         "No es pot travessar",
         "Es pot travessar sempre",
@@ -53,7 +53,7 @@
     {
       "pregunta": 6,
       "pregunta_text": "Quina velocitat màxima indica aquest senyal?",
-      "imatge": "https://preventecsl.es/wp-content/uploads/2021/05/senales-de-trafico-velocidad-.R-301-50.webp",
+      "imatge": "/img/img_6.png",
       "respostes": [
         "50 km/h",
         "80 km/h",
@@ -63,7 +63,7 @@
     {
       "pregunta": 7,
       "pregunta_text": "Què indica un pas de vianants?",
-      "imatge": "https://www.papeleria-sanfernando.com/wp-content/uploads/senalizacion/senales_trafico/SENALES_INDICACIONES_GENERALES/senal_S13_paso_peatones_1000x1000.jpg",
+      "imatge": "/img/img_7.jpg",
       "respostes": [
         "Zona destinada al pas de vianants",
         "Zona d'aparcament",
@@ -73,7 +73,7 @@
     {
       "pregunta": 8,
       "pregunta_text": "Què indica el senyal de prohibició d'entrada?",
-      "imatge": "https://www.autofacil.es/wp-content/uploads/2016/10/fotos-senales-trafico-significado-81_g-1.jpg",
+      "imatge": "/img/img_8.jpg",
       "respostes": [
         "Prohibit entrar",
         "Entrada obligatòria",
@@ -83,7 +83,7 @@
     {
       "pregunta": 9,
       "pregunta_text": "Què significa un semàfor amb llum vermella?",
-      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82rJx9tqakrz1VusDRF-EISRq8EnFCr6iqJbJseHxfFPsrH4MBK6S__Ue&s=10",
+      "imatge": "/img/img_9.png",
       "respostes": [
         "Aturar-se",
         "Accelerar",
@@ -93,7 +93,7 @@
     {
       "pregunta": 10,
       "pregunta_text": "Què indica el senyal de cedir el pas?",
-      "imatge": "https://syssa.com/39511-large_default/senyal-vial-cediu-el-pas-referencia-r1.jpg",
+      "imatge": "/img/img_10.png",
       "respostes": [
         "Cedir el pas",
         "Parada obligatòria",
@@ -103,7 +103,7 @@
     {
       "pregunta": 11,
       "pregunta_text": "Què indica un senyal de STOP?",
-      "imatge": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Vienna_Convention_road_sign_B2a.svg?utm_source=ca.wikipedia.org&utm_campaign=index&utm_content=original",
+      "imatge": "/img/img_11.svg",
       "respostes": [
         "Parada obligatòria",
         "Cedir el pas",
@@ -113,7 +113,7 @@
     {
       "pregunta": 12,
       "pregunta_text": "Què indica un senyal circular amb vora vermella?",
-      "imatge": "https://www.autofacil.es/wp-content/uploads/2016/10/fotos-senales-trafico-significado-80_g-1.jpg",
+      "imatge": "/img/img_12.jpg",
       "respostes": [
         "Prohibició o restricció",
         "Informació",
@@ -123,7 +123,7 @@
     {
       "pregunta": 13,
       "pregunta_text": "Què indica un senyal quadrat de color blau?",
-      "imatge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Spain_traffic_signal_s14a.svg/250px-Spain_traffic_signal_s14a.svg.png?utm_source=ca.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "imatge": "/img/img_13.png",
       "respostes": [
         "Informació o indicació",
         "Prohibició",
@@ -133,7 +133,7 @@
     {
       "pregunta": 14,
       "pregunta_text": "Què significa una llum groga fixa d'un semàfor?",
-      "imatge": "https://www.autoescolasantfeliu.com/wp-content/uploads/2019/11/Sem%C3%A0for-en-groc-Autoescola-Sant-Feliu.jpg.webp",
+      "imatge": "/img/img_14.png",
       "respostes": [
         "Aturar-se si es pot fer amb seguretat",
         "Passar sempre",
@@ -143,7 +143,7 @@
     {
       "pregunta": 15,
       "pregunta_text": "Què significa una llum verda en un semàfor?",
-      "imatge": "https://www.autoescoladelta.com/wp-content/uploads/2019/06/luz-verde.webp",
+      "imatge": "/img/img_15.png",
       "respostes": [
         "Es pot passar",
         "Cal aturar-se",
@@ -153,7 +153,7 @@
     {
       "pregunta": 16,
       "pregunta_text": "Què indica aquest senyal de perill?",
-      "imatge": "https://syssa.com/39364-large_default/interseccio-amb-prioritat.jpg",
+      "imatge": "/img/img_16.jpg",
       "respostes": [
         "Perill per la proximitat d'una intersecció",
         "Prohibició de girar",
@@ -163,7 +163,7 @@
     {
       "pregunta": 17,
       "pregunta_text": "Què indica un senyal de limitació de velocitat de 30 km/h?",
-      "imatge": "https://preventecsl.es/wp-content/uploads/2021/05/senal-trafico-R-301-30.webp",
+      "imatge": "/img/img_17.png",
       "respostes": [
         "Velocitat màxima de 30 km/h",
         "Velocitat mínima de 30 km/h",
@@ -173,7 +173,7 @@
     {
       "pregunta": 18,
       "pregunta_text": "Què indica un senyal de prohibició d'avançar?",
-      "imatge": "https://cdn.habitium.com/380069/senal-de-prohibido-avanzar-cofan.jpg?sto=true&width=480",
+      "imatge": "/img/img_18.png",
       "respostes": [
         "No es pot avançar",
         "Avançament obligatori",
@@ -183,7 +183,7 @@
     {
       "pregunta": 19,
       "pregunta_text": "Què indica un senyal de final de limitació de velocitat?",
-      "imatge": "https://senalescuberos.es/434-thickbox_default/senal-fin-de-limitacion-de-velocidad.jpg",
+      "imatge": "/img/img_19.jpg",
       "respostes": [
         "Finalitza la limitació de velocitat",
         "Comença una nova limitació",
@@ -193,7 +193,7 @@
     {
       "pregunta": 20,
       "pregunta_text": "Què indica un senyal de carril bici?",
-      "imatge": "https://www.barrera-abogados.com/wp-content/uploads/2019/10/SE%C3%91AL-BICICLETAS-2-BARRERA-ABOGADOS.png",
+      "imatge": "/img/img_20.png",
       "respostes": [
         "Via reservada per a bicicletes",
         "Zona exclusiva per a vianants",
@@ -203,7 +203,7 @@
     {
       "pregunta": 21,
       "pregunta_text": "Quina és la funció principal del cinturó de seguretat?",
-      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwN69xJtfx_xWfV_RPcTP-Pej8zPloJhuo0WQPHlt-Ak2qh07t-af4xJU&s=10",
+      "imatge": "/img/img_21.png",
       "respostes": [
         "Reduir el risc de lesions en cas d'accident",
         "Augmentar la velocitat del vehicle",
@@ -213,7 +213,7 @@
     {
       "pregunta": 22,
       "pregunta_text": "Què s'ha de fer davant d'un pas de vianants quan hi ha vianants que volen creuar?",
-      "imatge": "https://motor.elpais.com/wp-content/uploads/2024/11/Paso-de-cebra.jpg",
+      "imatge": "/img/img_22.png",
       "respostes": [
         "Cedir-los el pas",
         "Accelerar per passar abans",
@@ -223,7 +223,7 @@
     {
       "pregunta": 23,
       "pregunta_text": "Què indica una línia discontínua a la calçada?",
-      "imatge": "https://motor.elpais.com/wp-content/uploads/2023/07/lineas-discontinuas-seguridad-vial-4-1200x675.jpg",
+      "imatge": "/img/img_23.jpg",
       "respostes": [
         "Es pot travessar quan sigui segur",
         "No es pot travessar mai",
@@ -233,7 +233,7 @@
     {
       "pregunta": 24,
       "pregunta_text": "Què s'ha de fer abans de canviar de carril?",
-      "imatge": "https://static.idoneo.es/files/uploads/asistente_decambio_de_carril_imagen_cuadrada.jpg",
+      "imatge": "/img/img_24.jpg",
       "respostes": [
         "Comprovar que es pot fer amb seguretat i senyalitzar",
         "Accelerar sense mirar",
@@ -243,7 +243,7 @@
     {
       "pregunta": 25,
       "pregunta_text": "Què s'ha de fer quan s'apropa un vehicle d'emergència amb llums i sirena?",
-      "imatge": "https://www.racc.cat/wp-content/uploads/2021/12/llum-blau.jpg",
+      "imatge": "/img/img_25.png",
       "respostes": [
         "Facilitar-li el pas",
         "Accelerar per avançar-lo",

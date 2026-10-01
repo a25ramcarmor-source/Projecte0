@@ -6,6 +6,7 @@ const crudRoutes = require('./crud');
 const app = express();
 const port = Number(process.argv[2]) || 4000;
 
+app.use(crudRoutes);
 app.use(express.static('public'));
 app.use(express.json());
 
