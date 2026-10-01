@@ -1,48 +1,71 @@
+
 services:
 
-  # Servidor Node.js (Express / Backend)
+  # =====================================================
+  # SERVIDOR NODE.JS / EXPRESS
+  # =====================================================
   node:
-    image: node:20
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
+
     working_dir: /home/node/app
+
     ports:
       - "4000:4000"
+
     depends_on:
       db:
-        condition: service_healthy # Espera a que el healthcheck de MySQL dé OK
-    command: sh -c "npm install && node migrate.js && node app.js"
+        condition: service_healthy
 
-  # Administrador web para MySQL
+    command: sh -c "node migrate.js && node app.js"
+
+
+  # =====================================================
+  # ADMINER
+  # =====================================================
   adminer:
     image: adminer:4.7.7
     restart: always
+
     ports:
       - "9090:8080"
+
     depends_on:
       - db
 
-  # Base de datos MySQL
+
+  # =====================================================
+  # MYSQL
+  # =====================================================
   db:
     image: mysql:8.2.0
     restart: always
+
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: quiz_db
       MYSQL_USER: user
       MYSQL_PASSWORD: user
+
     ports:
       - "3306:3306"
+
     volumes:
       - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"] # Contraseña corregida a "root"
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 5s
       timeout: 5s
       retries: 10
-      start_period: 10s # Tiempo de gracia para que MySQL procese init.sql sin marcar error
+      start_period: 10s
+
 
 volumes:
   mysql_data:
