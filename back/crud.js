@@ -174,7 +174,7 @@ router.post(
             let rutaImagen = null;
 
             if (req.file) {
-                rutaImagen = '/images/' + req.file.filename;
+                rutaImagen = '/img/' + req.file.filename;
             }
 
 
@@ -306,7 +306,7 @@ router.put(
             // Si se ha enviado una nueva imagen
             if (req.file) {
 
-                rutaImagen = '/images/' + req.file.filename;
+                rutaImagen = '/img/' + req.file.filename;
             }
 
 
